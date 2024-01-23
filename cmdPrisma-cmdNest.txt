@@ -1,0 +1,47 @@
+*PRISMA*
+
+Inicializar Prisma:
+    -prisma init --datasource-provider mysql
+
+Configurar o .ENV:
+    Substituir usuario, senha, host(se necessario), porta(se necessario), database
+
+Criar os models
+
+Gerar a migrate para criar a base de dados:
+    -prisma migrate dev --name "qualquercoisa"
+
+Instalar o PrismaClient:
+    -npm i @prisma/client
+    
+Abrir interface do prisma:
+    -prisma studio
+
+---------------------------------------------------------------------
+
+*NEST*
+
+Instalar a CLI do Nest:
+    -npm i -g @nestjs/cli
+
+Criar novo projeto Nest:
+    -nest new project-name
+
+Rodar o projeto Nest:
+    -npm run start:dev
+
+Fazer o Nest gerar modules:
+    -nest g resource modules/nomedomodel
+
+Instalar dependências para autenticação com JWT e HashCode(Criptografar as senhas dos usuários):
+    -npm i @nestjs/passport @nestjs/jwt bcrypt class-validator class-transformer passport passport-jwt passport-local
+
+Instalar dependências de Dev para types:
+    -npm i -D @types/passport-jwt @types/passport-local @types/bcrypt
+
+
+
+
+
+
+
