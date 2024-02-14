@@ -20,8 +20,8 @@ export class UserController {
   }
 
   @Get('read-username:username')
-  findUserName(@Param('username') readUserDto: ReadUserDto) {
-    return this.userService.findUserName(readUserDto);
+  findUserName(@Param('username') username: string) {
+    return this.userService.findUserName(username);
   }
 
   @Get('read-user:id')

@@ -35,9 +35,9 @@ export class UserService {
     };
   }
 
-  async findUserName(readUserDto: ReadUserDto): Promise<User>{
+  async findUserName(username: string){
     const user = await this.prisma.user.findUnique({ 
-      where: { username : readUserDto.username} 
+      where: { username }
     });
 
     return user;
