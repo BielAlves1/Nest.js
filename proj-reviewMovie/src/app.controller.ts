@@ -5,7 +5,7 @@ import { PrismaService } from './database/prisma.service';
 export class AppController {
   constructor(private readonly prismaService: PrismaService) {}
 
-  @Get()
+  @Get('hello')
   getHello() : String {
     return this.prismaService.getHello();
   }
