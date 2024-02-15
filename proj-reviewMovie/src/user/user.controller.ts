@@ -25,8 +25,8 @@ export class UserController {
   }
 
   @Get('read-user:id')
-  findOne(@Param('id') readUserDto: ReadUserDto) {
-    return this.userService.findUser(readUserDto);
+  findOne(@Param('id') id: string, readUserDto: ReadUserDto) {
+    return this.userService.findUser(+id, readUserDto);
   }
 
   @Patch('update-user:id')

@@ -37,13 +37,13 @@ export class UserService {
 
   async findUserName(username: string){
     const user = await this.prisma.user.findUnique({ 
-      where: { username }
+      where: { username: String(username) }
     });
 
     return user;
   }
 
-  async findUser(readUserDto: ReadUserDto): Promise<User>{
+  async findUser(id: number, readUserDto: ReadUserDto): Promise<User>{
     const user = await this.prisma.user.findUnique({ 
       where: { id : readUserDto.id} 
     });
