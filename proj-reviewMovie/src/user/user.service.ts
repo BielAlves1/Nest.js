@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -16,7 +16,7 @@ export class UserService {
     const user = await this.prisma.user.create({
       data:{
         ...createUserDto,
-        password: await bcrypt.hash(createUserDto.password, 5),
+        password: await bcrypt.hash(createUserDto.password, 10),
       }
     });
 
@@ -37,15 +37,15 @@ export class UserService {
 
   async findUserName(username: string){
     const user = await this.prisma.user.findUnique({ 
-      where: { username: String(username) }
+      where: { username }
     });
 
     return user;
   }
 
-  async findUser(id: number, readUserDto: ReadUserDto): Promise<User>{
+  async findUser(id: number){
     const user = await this.prisma.user.findUnique({ 
-      where: { id : readUserDto.id} 
+      where: { id } 
     });
 
     return user;
@@ -59,19 +59,16 @@ export class UserService {
       },
       data:{
         ...updateUserDto,
-        password: await bcrypt.hash(updateUserDto.password, 5),
+        password: await bcrypt.hash(updateUserDto.password, 10),
       }
     });
 
-    return {
-      ...user,
-      password: undefined,
-    };
+    return user;
   }
 
-  async remove(deleteUserDto: DeleteUserDto): Promise<User> {
+  async remove(id: number){
     const user = await this.prisma.user.delete({ 
-      where: { id : deleteUserDto.id} 
+      where: { id } 
     });
     
     return user;
