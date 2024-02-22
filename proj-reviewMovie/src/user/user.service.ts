@@ -14,7 +14,7 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const user = await this.prisma.user.create({
@@ -38,9 +38,7 @@ export class UserService {
     const users = await this.prisma.user.findMany();
 
     if (users.length === 0) {
-      throw new HttpException(
-        'Não foi possível listar usuários',
-        HttpStatus.BAD_REQUEST,
+      throw new HttpException('Não existem usuários cadastrados para listar.', HttpStatus.BAD_REQUEST,
       );
     } else {
       return users.map((user) => ({
@@ -58,10 +56,7 @@ export class UserService {
     if (!user) {
       throw new NotFoundException('Erro: Usuário não encontrado.');
     } else {
-      return {
-        ...user,
-        password: undefined,
-      };
+      return user;
     }
   }
 
@@ -121,7 +116,7 @@ export class UserService {
       if (error.code === 'P2025') {
         throw new NotFoundException(`Usuário com o ID '${id}' não encontrado.`);
       } else {
-      throw new HttpException('Erro ao remover usuário.', HttpStatus.BAD_REQUEST);
+        throw new HttpException('Erro ao remover usuário.', HttpStatus.BAD_REQUEST);
       }
     }
   }
