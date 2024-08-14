@@ -1,10 +1,15 @@
 *PRISMA*
 
 Instalar o prisma globalmente:
-    - npm i -g prisma
+    - npm i -g -D prisma
+
+Instalar o prisma no projeto:
+    - npm i -D prisma
 
 Inicializar Prisma dentro do projeto:
     - prisma init --datasource-provider mysql
+    OU
+    - npx prisma init --datasource-provider mysql
 
 Configurar o .ENV:
     Substituir usuario, senha, host(se necessario), porta(se necessario), database
