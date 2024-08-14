@@ -14,7 +14,7 @@ Inicializar Prisma dentro do projeto:
 Configurar o .ENV:
     Substituir usuario, senha, host(se necessario), porta(se necessario), database
 
-Criar os models
+*Criar os models no Schema*
 
 Gerar a migrate para criar a base de dados:
     - prisma migrate dev --name "qualquercoisa"
@@ -24,6 +24,25 @@ Instalar o PrismaClient:
     
 Abrir interface do prisma:
     - prisma studio
+
+Principais comandos de migrate:
+    - prisma migrate dev
+
+    ***Esse comando é usado durante o desenvolvimento. Ele cria uma nova migração baseada nas mudanças feitas no schema.prisma e aplica essa migração ao banco de dados.
+    Processo:
+    Detecta mudanças no arquivo schema.prisma.
+    Cria um arquivo de migração (um arquivo .sql) na pasta prisma/migrations.
+    Aplica a migração no banco de dados.***
+
+    - prisma migrate deploy
+
+    ***Esse comando aplica todas as migrações pendentes no banco de dados em ambientes de produção.
+    Quando usar: Depois de testar as migrações localmente e ter certeza de que elas estão corretas, você usa este comando para aplicá-las em um banco de dados de produção.***
+    
+    - prisma migrate reset:
+
+    ***Esse comando reseta o banco de dados, aplicando todas as migrações novamente a partir do zero.
+    Aviso: Ele apaga todos os dados do banco, então é usado principalmente em ambientes de desenvolvimento.***
 
 ----------------------------------------------------//------------------------------------------------
 
