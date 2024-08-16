@@ -6,10 +6,14 @@ Instalar o prisma globalmente:
 Instalar o prisma no projeto:
     - npm i -D prisma
 
+------------------------------------------------|||||||||||||||||-------------------------------------
+
 Inicializar Prisma dentro do projeto:
     - prisma init --datasource-provider mysql
     OU
     - npx prisma init --datasource-provider mysql
+
+------------------------------------------------|||||||||||||||||-------------------------------------
 
 Configurar o .ENV:
     Substituir usuario, senha, host(se necessario), porta(se necessario), database
@@ -19,9 +23,13 @@ Configurar o .ENV:
 Gerar a migrate para criar a base de dados:
     - prisma migrate dev --name "qualquercoisa"
 
+------------------------------------------------|||||||||||||||||-------------------------------------
+
+**CASO o @Prisma/Client não seja instalado automaticamente depois da migração:**
 Instalar o PrismaClient:
     - npm i @prisma/client
     
+------------------------------------------------|||||||||||||||||-------------------------------------    
 Abrir interface do prisma:
     - prisma studio
 
@@ -46,7 +54,7 @@ Principais comandos de migrate:
 
 ----------------------------------------------------//------------------------------------------------
 
-*NEST*
+*NESTJS*
 
 Instalar a CLI do Nest:
     - npm i -g @nestjs/cli
