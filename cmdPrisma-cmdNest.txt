@@ -68,6 +68,9 @@ Rodar o projeto Nest:
 Fazer o Nest gerar modules:
     - nest g resource modules/nomedomodel
 
+Fazer o Nest gerar prisma.service:
+    - nest g s prisma
+
 Instalar dependências para autenticação com JWT e HashCode(Criptografar as senhas dos usuários):
     - npm i @nestjs/passport @nestjs/jwt bcrypt class-validator class-transformer passport passport-jwt passport-local
 
