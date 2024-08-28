@@ -12,6 +12,8 @@ import { ReadUserDto } from './dto/read-user.dto';
 import { DeleteUserDto } from './dto/delete-user.dto';
 import { User } from './entities/user.entity';
 
+//teste
+
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) { }
